@@ -1,6 +1,6 @@
-# RF008 - Capacidade de producao
+# RF008 - Capacidade de produção
 
-Aplicacao full stack para listar quais produtos podem ser produzidos com base nas materias-primas disponiveis em estoque.
+Aplicação full stack para listar quais produtos podem ser produzidos com base nas matérias-primas disponíveis em estoque.
 
 ## Estrutura
 
@@ -11,34 +11,34 @@ Aplicacao full stack para listar quais produtos podem ser produzidos com base na
 
 O backend foi organizado em camadas inspiradas em Clean Architecture, separando:
 
-- `domain`: modelos e regra de negocio
+- `domain`: modelos e regra de negócio
 - `application`: casos de uso e portas
-- `infrastructure`: implementacao de persistencia em memoria
+- `infrastructure`: implementação de persistência em memória
 - `presentation`: endpoints e DTOs
 
-Essa organizacao facilita testes, manutencao e evolucao da aplicacao.
+Essa organização facilita testes, manutenção e evolução da aplicação.
 
-## Regra de negocio
+## Regra de negócio
 
 Para cada produto:
 
 `quantidadeProduzivel = min(floor(estoqueMateriaPrima / consumoPorUnidade))`
 
-Se alguma materia-prima nao existir em estoque, o sistema considera disponibilidade `0`.
+Se alguma matéria-prima não existir em estoque, o sistema considera disponibilidade `0`.
 
-## Seed em memoria
+## Seed em memória
 
-Materias-primas em estoque:
+Matérias-primas em estoque:
 
-- `Aco`: 20
+- `Aço`: 20
 - `Parafuso`: 7
-- `Plastico`: 11
+- `Plástico`: 11
 - `Borracha`: 2
 
 Produtos:
 
-- `Produto A`: Aco=2, Parafuso=1
-- `Produto B`: Aco=3, Plastico=2
+- `Produto A`: Aço=2, Parafuso=1
+- `Produto B`: Aço=3, Plástico=2
 - `Produto C`: Parafuso=4, Borracha=1
 - `Produto D`: Cobre=2
 
@@ -85,7 +85,7 @@ cd backend
 mvn spring-boot:run
 ```
 
-Aplicacao em `http://localhost:8080`.
+Aplicação em `http://localhost:8080`.
 
 ### Frontend
 
@@ -101,7 +101,7 @@ npm install
 npm run dev
 ```
 
-Aplicacao em `http://localhost:5173`.
+Aplicação em `http://localhost:5173`.
 
 Se precisar apontar para outra URL do backend:
 
@@ -120,8 +120,8 @@ mvn test
 
 Cobertura prevista:
 
-- teste unitario da regra de calculo
-- teste de integracao do endpoint principal com `MockMvc`
+- teste unitário da regra de cálculo
+- teste de integração do endpoint principal com `MockMvc`
 
 ### Frontend
 
@@ -145,17 +145,17 @@ npm install
 npm run test:e2e
 ```
 
-O teste intercepta a chamada ao endpoint e valida a renderizacao da tabela.
+O teste intercepta a chamada ao endpoint e valida a renderização da tabela.
 
-## Publicacao
+## Publicação
 
 Para entrega:
 
-1. Inicialize um repositorio Git na raiz.
+1. Inicialize um repositório Git na raiz.
 2. Suba para GitHub.
-3. Compartilhe o link do repositorio.
+3. Compartilhe o link do repositório.
 
-Se conseguir publicar a aplicacao:
+Se conseguir publicar a aplicação:
 
 - frontend: Vercel ou Netlify
 - backend: Render, Railway ou Fly.io
