@@ -1,6 +1,6 @@
 describe('Production capacity dashboard', () => {
   it('renders the possible production table', () => {
-    cy.intercept('GET', '**/api/producao/possivel', {
+    cy.intercept('GET', '**/api/production-capacity', {
       statusCode: 200,
       body: [
         {

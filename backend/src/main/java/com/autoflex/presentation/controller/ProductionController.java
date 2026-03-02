@@ -32,21 +32,21 @@ public class ProductionController {
         this.stockRepository = stockRepository;
     }
 
-    @GetMapping("/producao/possivel")
+    @GetMapping("/production-capacity")
     public List<ProductionCapacityResponse> listPossibleProduction() {
         return listPossibleProductionUseCase.execute().stream()
                 .map(ProductionCapacityResponse::fromDomain)
                 .toList();
     }
 
-    @GetMapping("/produtos")
+    @GetMapping("/products")
     public List<ProductResponse> listProducts() {
         return productRepository.findAll().stream()
                 .map(ProductResponse::fromDomain)
                 .toList();
     }
 
-    @GetMapping("/estoque/materias-primas")
+    @GetMapping("/raw-material-stocks")
     public List<StockResponse> listStock() {
         return stockRepository.findAll().stream()
                 .map(StockResponse::fromDomain)

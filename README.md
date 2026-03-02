@@ -44,7 +44,7 @@ Produtos:
 
 ## Endpoint principal
 
-`GET /api/producao/possivel`
+`GET /api/production-capacity`
 
 Resposta de exemplo:
 
@@ -66,8 +66,8 @@ Resposta de exemplo:
 
 Endpoints auxiliares:
 
-- `GET /api/produtos`
-- `GET /api/estoque/materias-primas`
+- `GET /api/products`
+- `GET /api/raw-material-stocks`
 
 ## Como rodar
 
@@ -147,15 +147,6 @@ npm run test:e2e
 
 O teste intercepta a chamada ao endpoint e valida a renderização da tabela.
 
-## Publicação
+## Links
 
-Para entrega:
-
-1. Inicialize um repositório Git na raiz.
-2. Suba para GitHub.
-3. Compartilhe o link do repositório.
-
-Se conseguir publicar a aplicação:
-
-- frontend: Vercel ou Netlify
-- backend: Render, Railway ou Fly.io
+- Live demo: https://production-capacity.vercel.app/
