@@ -22,7 +22,7 @@ Essa organização facilita testes, manutenção e evolução da aplicação.
 
 Para cada produto:
 
-`quantidadeProduzivel = min(floor(estoqueMateriaPrima / consumoPorUnidade))`
+`producibleQuantity = min(floor(availableStock / consumptionPerUnit))`
 
 Se alguma matéria-prima não existir em estoque, o sistema considera disponibilidade `0`.
 
@@ -51,14 +51,14 @@ Resposta de exemplo:
 ```json
 [
   {
-    "produtoId": 10,
-    "nome": "Produto A",
-    "quantidadeProduzivel": 7,
-    "limitante": {
-      "materiaPrimaId": 2,
-      "nome": "Parafuso",
-      "disponivel": 7,
-      "consumoPorUnidade": 1
+    "productId": 10,
+    "productName": "Produto A",
+    "producibleQuantity": 7,
+    "limitingFactor": {
+      "rawMaterialId": 2,
+      "name": "Parafuso",
+      "availableQuantity": 7,
+      "consumptionPerUnit": 1
     }
   }
 ]

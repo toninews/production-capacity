@@ -6,16 +6,16 @@ function sortItems(items, sortBy) {
   const sorted = [...items];
 
   if (sortBy === 'quantity-desc') {
-    sorted.sort((left, right) => right.quantidadeProduzivel - left.quantidadeProduzivel);
+    sorted.sort((left, right) => right.producibleQuantity - left.producibleQuantity);
     return sorted;
   }
 
   if (sortBy === 'quantity-asc') {
-    sorted.sort((left, right) => left.quantidadeProduzivel - right.quantidadeProduzivel);
+    sorted.sort((left, right) => left.producibleQuantity - right.producibleQuantity);
     return sorted;
   }
 
-  sorted.sort((left, right) => left.nome.localeCompare(right.nome));
+  sorted.sort((left, right) => left.productName.localeCompare(right.productName));
   return sorted;
 }
 
@@ -47,17 +47,17 @@ export default function App() {
 
   const filteredItems = sortItems(
     items.filter((item) => {
-      const matchesName = item.nome.toLowerCase().includes(query.toLowerCase());
-      const matchesAvailability = showUnavailableOnly ? item.quantidadeProduzivel === 0 : true;
+      const matchesName = item.productName.toLowerCase().includes(query.toLowerCase());
+      const matchesAvailability = showUnavailableOnly ? item.producibleQuantity === 0 : true;
       return matchesName && matchesAvailability;
     }),
     sortBy
   );
 
-  const unavailableCount = items.filter((item) => item.quantidadeProduzivel === 0).length;
+  const unavailableCount = items.filter((item) => item.producibleQuantity === 0).length;
   const topProduct = items.reduce(
     (best, current) =>
-      !best || current.quantidadeProduzivel > best.quantidadeProduzivel ? current : best,
+      !best || current.producibleQuantity > best.producibleQuantity ? current : best,
     null
   );
 
@@ -85,7 +85,7 @@ export default function App() {
           <article className="summary-card">
             <span className="summary-label">Maior capacidade</span>
             <strong>
-              {topProduct ? `${topProduct.nome} (${topProduct.quantidadeProduzivel})` : '-'}
+              {topProduct ? `${topProduct.productName} (${topProduct.producibleQuantity})` : '-'}
             </strong>
           </article>
         </section>

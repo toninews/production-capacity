@@ -26,6 +26,6 @@ public class InMemoryStockRepository implements StockRepository {
 
     @Override
     public Map<Long, RawMaterialStock> findAllByMaterialId() {
-        return stock.stream().collect(Collectors.toMap(RawMaterialStock::materiaPrimaId, Function.identity()));
+        return stock.stream().collect(Collectors.toMap(RawMaterialStock::rawMaterialId, Function.identity()));
     }
 }

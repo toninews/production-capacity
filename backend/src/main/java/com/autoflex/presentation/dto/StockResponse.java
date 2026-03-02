@@ -3,11 +3,11 @@ package com.autoflex.presentation.dto;
 import com.autoflex.domain.model.RawMaterialStock;
 
 public record StockResponse(
-        Long materiaPrimaId,
-        String nome,
-        int quantidadeDisponivel
+        Long rawMaterialId,
+        String name,
+        int availableQuantity
 ) {
     public static StockResponse fromDomain(RawMaterialStock stock) {
-        return new StockResponse(stock.materiaPrimaId(), stock.nome(), stock.quantidadeDisponivel());
+        return new StockResponse(stock.rawMaterialId(), stock.name(), stock.availableQuantity());
     }
 }

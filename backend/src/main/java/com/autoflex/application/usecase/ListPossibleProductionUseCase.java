@@ -30,7 +30,7 @@ public class ListPossibleProductionUseCase {
         var stockById = stockRepository.findAllByMaterialId();
         return productRepository.findAll().stream()
                 .map(product -> productionCalculator.calculate(product, stockById))
-                .sorted(Comparator.comparing(ProductionCapacity::nome))
+                .sorted(Comparator.comparing(ProductionCapacity::productName))
                 .toList();
     }
 }

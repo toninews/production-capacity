@@ -21,13 +21,13 @@ class ProductionControllerTest {
     void shouldReturnPossibleProductionForSeedData() throws Exception {
         mockMvc.perform(get("/api/producao/possivel"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].nome").value("Produto A"))
-                .andExpect(jsonPath("$[0].quantidadeProduzivel").value(7))
-                .andExpect(jsonPath("$[1].nome").value("Produto B"))
-                .andExpect(jsonPath("$[1].quantidadeProduzivel").value(5))
-                .andExpect(jsonPath("$[2].nome").value("Produto C"))
-                .andExpect(jsonPath("$[2].quantidadeProduzivel").value(1))
-                .andExpect(jsonPath("$[3].nome").value("Produto D"))
-                .andExpect(jsonPath("$[3].quantidadeProduzivel").value(0));
+                .andExpect(jsonPath("$[0].productName").value("Produto A"))
+                .andExpect(jsonPath("$[0].producibleQuantity").value(7))
+                .andExpect(jsonPath("$[1].productName").value("Produto B"))
+                .andExpect(jsonPath("$[1].producibleQuantity").value(5))
+                .andExpect(jsonPath("$[2].productName").value("Produto C"))
+                .andExpect(jsonPath("$[2].producibleQuantity").value(1))
+                .andExpect(jsonPath("$[3].productName").value("Produto D"))
+                .andExpect(jsonPath("$[3].producibleQuantity").value(0));
     }
 }

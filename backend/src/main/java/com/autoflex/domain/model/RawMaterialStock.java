@@ -1,8 +1,8 @@
 package com.autoflex.domain.model;
 
 public record RawMaterialStock(
-        Long materiaPrimaId,
-        String nome,
-        int quantidadeDisponivel
+        Long rawMaterialId,
+        String name,
+        int availableQuantity
 ) {
 }

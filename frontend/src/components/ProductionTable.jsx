@@ -1,13 +1,13 @@
 function getCapacityStatus(item) {
-  if (!item.limitante) {
+  if (!item.limitingFactor) {
     return 'Sem receita';
   }
 
-  if (item.quantidadeProduzivel === 0) {
-    return `Sem estoque suficiente de ${item.limitante.nome}`;
+  if (item.producibleQuantity === 0) {
+    return `Sem estoque suficiente de ${item.limitingFactor.name}`;
   }
 
-  return `${item.limitante.disponivel} disponivel / ${item.limitante.consumoPorUnidade} por unidade`;
+  return `${item.limitingFactor.availableQuantity} disponivel / ${item.limitingFactor.consumptionPerUnit} por unidade`;
 }
 
 export function ProductionTable({ items }) {
@@ -23,18 +23,18 @@ export function ProductionTable({ items }) {
         </thead>
         <tbody>
           {items.map((item) => (
-            <tr key={item.produtoId}>
-              <td>{item.nome}</td>
+            <tr key={item.productId}>
+              <td>{item.productName}</td>
               <td>
-                <strong>{item.quantidadeProduzivel}</strong>
+                <strong>{item.producibleQuantity}</strong>
               </td>
               <td>
-                {item.limitante ? (
-                  <div className="limitante-cell">
-                    <span className="limitante-badge">
-                      Limitado por: {item.limitante.nome}
+                {item.limitingFactor ? (
+                  <div className="limiting-factor-cell">
+                    <span className="limiting-factor-badge">
+                      Limitado por: {item.limitingFactor.name}
                     </span>
-                    <span className="limitante-detail">{getCapacityStatus(item)}</span>
+                    <span className="limiting-factor-detail">{getCapacityStatus(item)}</span>
                   </div>
                 ) : (
                   'Sem receita'

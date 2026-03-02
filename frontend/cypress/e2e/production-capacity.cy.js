@@ -4,14 +4,14 @@ describe('Production capacity dashboard', () => {
       statusCode: 200,
       body: [
         {
-          produtoId: 10,
-          nome: 'Produto A',
-          quantidadeProduzivel: 7,
-          limitante: {
-            materiaPrimaId: 2,
-            nome: 'Parafuso',
-            disponivel: 7,
-            consumoPorUnidade: 1
+          productId: 10,
+          productName: 'Produto A',
+          producibleQuantity: 7,
+          limitingFactor: {
+            rawMaterialId: 2,
+            name: 'Parafuso',
+            availableQuantity: 7,
+            consumptionPerUnit: 1
           }
         }
       ]

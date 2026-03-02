@@ -1,12 +1,12 @@
 package com.autoflex.domain.model;
 
 public record MaterialRequirement(
-        Long materiaPrimaId,
-        String materiaPrimaNome,
-        int consumoPorUnidade
+        Long rawMaterialId,
+        String rawMaterialName,
+        int consumptionPerUnit
 ) {
     public MaterialRequirement {
-        if (consumoPorUnidade <= 0) {
+        if (consumptionPerUnit <= 0) {
             throw new IllegalArgumentException("Consumo por unidade deve ser maior que zero");
         }
     }

@@ -6,27 +6,27 @@ import java.util.List;
 
 public record ProductResponse(
         Long id,
-        String nome,
-        List<RecipeItemResponse> receita
+        String name,
+        List<RecipeItemResponse> recipe
 ) {
     public static ProductResponse fromDomain(Product product) {
         return new ProductResponse(
                 product.id(),
-                product.nome(),
-                product.receita().stream()
+                product.name(),
+                product.recipe().stream()
                         .map(item -> new RecipeItemResponse(
-                                item.materiaPrimaId(),
-                                item.materiaPrimaNome(),
-                                item.consumoPorUnidade()
+                                item.rawMaterialId(),
+                                item.rawMaterialName(),
+                                item.consumptionPerUnit()
                         ))
                         .toList()
         );
     }
 
     public record RecipeItemResponse(
-            Long materiaPrimaId,
-            String nome,
-            int consumoPorUnidade
+            Long rawMaterialId,
+            String name,
+            int consumptionPerUnit
     ) {
     }
 }

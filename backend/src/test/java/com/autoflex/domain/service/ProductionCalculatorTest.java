@@ -29,8 +29,8 @@ class ProductionCalculatorTest {
 
         var result = calculator.calculate(product, stockById);
 
-        assertEquals(3, result.quantidadeProduzivel());
-        assertEquals(2L, result.limitante().materiaPrimaId());
+        assertEquals(3, result.producibleQuantity());
+        assertEquals(2L, result.limitingFactor().rawMaterialId());
     }
 
     @Test
@@ -46,8 +46,8 @@ class ProductionCalculatorTest {
 
         var result = calculator.calculate(product, stockById);
 
-        assertEquals(0, result.quantidadeProduzivel());
-        assertEquals(3L, result.limitante().materiaPrimaId());
+        assertEquals(0, result.producibleQuantity());
+        assertEquals(3L, result.limitingFactor().rawMaterialId());
     }
 
     @Test

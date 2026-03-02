@@ -15,13 +15,13 @@ describe('App', () => {
         ok: true,
         json: async () => [
           {
-            produtoId: 10,
-            nome: 'Produto A',
-            quantidadeProduzivel: 7,
-            limitante: {
-              nome: 'Parafuso',
-              disponivel: 7,
-              consumoPorUnidade: 1
+            productId: 10,
+            productName: 'Produto A',
+            producibleQuantity: 7,
+            limitingFactor: {
+              name: 'Parafuso',
+              availableQuantity: 7,
+              consumptionPerUnit: 1
             }
           }
         ]
@@ -58,8 +58,8 @@ describe('App', () => {
       vi.fn().mockResolvedValue({
         ok: true,
         json: async () => [
-          { produtoId: 10, nome: 'Produto A', quantidadeProduzivel: 7, limitante: null },
-          { produtoId: 20, nome: 'Produto B', quantidadeProduzivel: 5, limitante: null }
+          { productId: 10, productName: 'Produto A', producibleQuantity: 7, limitingFactor: null },
+          { productId: 20, productName: 'Produto B', producibleQuantity: 5, limitingFactor: null }
         ]
       })
     );
@@ -86,16 +86,16 @@ describe('App', () => {
         ok: true,
         json: async () => [
           {
-            produtoId: 10,
-            nome: 'Produto A',
-            quantidadeProduzivel: 7,
-            limitante: { nome: 'Parafuso', disponivel: 7, consumoPorUnidade: 1 }
+            productId: 10,
+            productName: 'Produto A',
+            producibleQuantity: 7,
+            limitingFactor: { name: 'Parafuso', availableQuantity: 7, consumptionPerUnit: 1 }
           },
           {
-            produtoId: 40,
-            nome: 'Produto D',
-            quantidadeProduzivel: 0,
-            limitante: { nome: 'Cobre', disponivel: 0, consumoPorUnidade: 2 }
+            productId: 40,
+            productName: 'Produto D',
+            producibleQuantity: 0,
+            limitingFactor: { name: 'Cobre', availableQuantity: 0, consumptionPerUnit: 2 }
           }
         ]
       })

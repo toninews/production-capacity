@@ -4,36 +4,36 @@ import com.autoflex.domain.model.ProductionCapacity;
 import com.autoflex.domain.model.ProductionLimitingFactor;
 
 public record ProductionCapacityResponse(
-        Long produtoId,
-        String nome,
-        int quantidadeProduzivel,
-        LimitingFactorResponse limitante
+        Long productId,
+        String productName,
+        int producibleQuantity,
+        LimitingFactorResponse limitingFactor
 ) {
     public static ProductionCapacityResponse fromDomain(ProductionCapacity capacity) {
-        LimitingFactorResponse limitingFactor = capacity.limitante() == null
+        LimitingFactorResponse limitingFactor = capacity.limitingFactor() == null
                 ? null
-                : LimitingFactorResponse.fromDomain(capacity.limitante());
+                : LimitingFactorResponse.fromDomain(capacity.limitingFactor());
 
         return new ProductionCapacityResponse(
-                capacity.produtoId(),
-                capacity.nome(),
-                capacity.quantidadeProduzivel(),
+                capacity.productId(),
+                capacity.productName(),
+                capacity.producibleQuantity(),
                 limitingFactor
         );
     }
 
     public record LimitingFactorResponse(
-            Long materiaPrimaId,
-            String nome,
-            int disponivel,
-            int consumoPorUnidade
+            Long rawMaterialId,
+            String name,
+            int availableQuantity,
+            int consumptionPerUnit
     ) {
         public static LimitingFactorResponse fromDomain(ProductionLimitingFactor factor) {
             return new LimitingFactorResponse(
-                    factor.materiaPrimaId(),
-                    factor.nome(),
-                    factor.disponivel(),
-                    factor.consumoPorUnidade()
+                    factor.rawMaterialId(),
+                    factor.name(),
+                    factor.availableQuantity(),
+                    factor.consumptionPerUnit()
             );
         }
     }

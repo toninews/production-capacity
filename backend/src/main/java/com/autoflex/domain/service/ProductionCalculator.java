@@ -15,11 +15,11 @@ import java.util.Map;
 public class ProductionCalculator {
 
     public ProductionCapacity calculate(Product product, Map<Long, RawMaterialStock> stockById) {
-        if (product.receita() == null || product.receita().isEmpty()) {
-            return new ProductionCapacity(product.id(), product.nome(), 0, null);
+        if (product.recipe() == null || product.recipe().isEmpty()) {
+            return new ProductionCapacity(product.id(), product.name(), 0, null);
         }
 
-        List<MaterialCapacity> capacities = product.receita().stream()
+        List<MaterialCapacity> capacities = product.recipe().stream()
                 .map(requirement -> toMaterialCapacity(requirement, stockById))
                 .toList();
 
@@ -28,19 +28,19 @@ public class ProductionCalculator {
                 .orElseThrow();
 
         ProductionLimitingFactor factor = new ProductionLimitingFactor(
-                limiting.requirement().materiaPrimaId(),
-                limiting.requirement().materiaPrimaNome(),
+                limiting.requirement().rawMaterialId(),
+                limiting.requirement().rawMaterialName(),
                 limiting.available(),
-                limiting.requirement().consumoPorUnidade()
+                limiting.requirement().consumptionPerUnit()
         );
 
-        return new ProductionCapacity(product.id(), product.nome(), limiting.maxUnits(), factor);
+        return new ProductionCapacity(product.id(), product.name(), limiting.maxUnits(), factor);
     }
 
     private MaterialCapacity toMaterialCapacity(MaterialRequirement requirement, Map<Long, RawMaterialStock> stockById) {
-        RawMaterialStock stock = stockById.get(requirement.materiaPrimaId());
-        int available = stock != null ? stock.quantidadeDisponivel() : 0;
-        int maxUnits = available / requirement.consumoPorUnidade();
+        RawMaterialStock stock = stockById.get(requirement.rawMaterialId());
+        int available = stock != null ? stock.availableQuantity() : 0;
+        int maxUnits = available / requirement.consumptionPerUnit();
         return new MaterialCapacity(requirement, available, maxUnits);
     }
 
