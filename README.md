@@ -149,4 +149,6 @@ O teste intercepta a chamada ao endpoint e valida a renderização da tabela.
 
 ## Links
 
+- Repositório: https://github.com/toninews/production-capacity
 - Live demo: https://production-capacity.vercel.app/
+- Backend: https://production-capacity.onrender.com/api/production-capacity
