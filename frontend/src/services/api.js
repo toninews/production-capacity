@@ -4,7 +4,7 @@ export async function fetchPossibleProduction() {
   const response = await fetch(`${API_BASE_URL}/production-capacity`);
 
   if (!response.ok) {
-    throw new Error('Nao foi possivel carregar a producao.');
+    throw new Error('Não foi possível carregar a produção.');
   }
 
   return response.json();

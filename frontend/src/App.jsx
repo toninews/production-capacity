@@ -65,10 +65,10 @@ export default function App() {
     <main className="page">
       <section className="hero">
         <p className="eyebrow">RF008</p>
-        <h1>Capacidade de producao com base no estoque atual</h1>
+        <h1>Capacidade de produção com base no estoque atual</h1>
         <p className="subtitle">
-          Visualize quais produtos podem ser fabricados agora e qual materia-prima
-          esta limitando cada item.
+          Visualize quais produtos podem ser fabricados agora e qual matéria-prima
+          está limitando cada item.
         </p>
       </section>
 
@@ -116,14 +116,14 @@ export default function App() {
               checked={showUnavailableOnly}
               onChange={(event) => setShowUnavailableOnly(event.target.checked)}
             />
-            <span>Somente indisponiveis</span>
+            <span>Somente indisponíveis</span>
           </label>
           <button type="button" onClick={loadData}>
             Recarregar
           </button>
         </div>
 
-        {status === 'loading' && <p className="feedback">Carregando producao...</p>}
+        {status === 'loading' && <p className="feedback">Carregando produção...</p>}
 
         {status === 'error' && (
           <div className="feedback feedback-error" role="alert">

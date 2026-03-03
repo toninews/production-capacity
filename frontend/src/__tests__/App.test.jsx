@@ -30,7 +30,7 @@ describe('App', () => {
 
     render(<App />);
 
-    expect(screen.getByText('Carregando producao...')).toBeInTheDocument();
+    expect(screen.getByText('Carregando produção...')).toBeInTheDocument();
     expect(await screen.findByText('Produto A')).toBeInTheDocument();
     expect(screen.getByText('7')).toBeInTheDocument();
     expect(screen.getByText('Produtos analisados')).toBeInTheDocument();
@@ -48,7 +48,7 @@ describe('App', () => {
     render(<App />);
 
     expect(await screen.findByRole('alert')).toHaveTextContent(
-      'Nao foi possivel carregar a producao.'
+      'Não foi possível carregar a produção.'
     );
   });
 
@@ -105,7 +105,7 @@ describe('App', () => {
 
     await screen.findByText('Produto A');
 
-    fireEvent.click(screen.getByLabelText('Somente indisponiveis'));
+    fireEvent.click(screen.getByLabelText('Somente indisponíveis'));
 
     await waitFor(() => {
       expect(screen.queryByText('Produto A')).not.toBeInTheDocument();

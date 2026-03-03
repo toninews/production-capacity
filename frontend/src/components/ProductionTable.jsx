@@ -7,7 +7,7 @@ function getCapacityStatus(item) {
     return `Sem estoque suficiente de ${item.limitingFactor.name}`;
   }
 
-  return `${item.limitingFactor.availableQuantity} disponivel / ${item.limitingFactor.consumptionPerUnit} por unidade`;
+  return `${item.limitingFactor.availableQuantity} disponível / ${item.limitingFactor.consumptionPerUnit} por unidade`;
 }
 
 export function ProductionTable({ items }) {
@@ -17,7 +17,7 @@ export function ProductionTable({ items }) {
         <thead>
           <tr>
             <th>Produto</th>
-            <th>Quantidade Produzivel</th>
+            <th>Quantidade Produzível</th>
             <th>Limitante</th>
           </tr>
         </thead>

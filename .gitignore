@@ -4,4 +4,5 @@ frontend/dist/
 frontend/.vite/
 frontend/cypress/videos/
 frontend/cypress/screenshots/
+docs/
 .DS_Store
